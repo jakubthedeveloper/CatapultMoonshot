@@ -29,20 +29,19 @@ clock = pygame.time.Clock()
 is_running = True
 
 while is_running:
-  time_delta = clock.tick(60)/1000.0
-  for event in pygame.event.get():
-    if event.type == pygame.QUIT:
-      is_running = False
-    if event.type == pygame.KEYDOWN:
-      if event.key == pygame.K_SPACE:
-        catapult.shot()
+    time_delta = clock.tick(60)/1000.0
+    for event in pygame.event.get():
+      if event.type == pygame.QUIT:
+          is_running = False
+      if event.type == pygame.KEYDOWN:
+          if event.key == pygame.K_SPACE:
+              catapult.shot()
 
-  screen.blit(background, (0, 0))
-  catapult.update(time_delta)
+    screen.blit(background, (0, 0))
+    catapult.update(time_delta)
 
-  ground.draw(screen, width)
-  catapult.draw(screen)
-  moon.draw(screen)
+    ground.draw(screen, width)
+    catapult.draw(screen)
+    moon.draw(screen)
 
- # gui.update(time_delta)
-  pygame.display.update()
+    pygame.display.update()
