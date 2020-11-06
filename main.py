@@ -33,13 +33,9 @@ while is_running:
   for event in pygame.event.get():
     if event.type == pygame.QUIT:
       is_running = False
-
-#    if event.type == pygame.USEREVENT:
-#      if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
-#        if event.ui_element == gui.button_shoot:
-#          shoot()
-#
-#    gui.process_event(event)
+    if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_SPACE:
+        catapult.shot()
 
   screen.blit(background, (0, 0))
   catapult.update(time_delta)
