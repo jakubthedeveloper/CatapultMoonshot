@@ -10,6 +10,7 @@ from catapult import Catapult
 from moon import Moon
 from ground import Ground
 from astronaut import Astronaut
+from event import Event
 
 pygame.init()
 
@@ -40,7 +41,12 @@ while is_running:
               is_running = False
           if event.key == pygame.K_SPACE:
               catapult.shot()
+      if event.type == Event.EVENT_FIRE:
+          astronaut.fire()
+      if event.type == Event.EVENT_RESPAWN:
+          astronaut.respawn()
 
+    astronaut.check_position(width, height)
     screen.blit(background, (0, 0))
     catapult.update(time_delta)
 

@@ -2,6 +2,7 @@ import random
 import pygame
 import math
 from utils import Utils
+from event import Event
 
 class Catapult():
     def __init__(self, position_x, position_y):
@@ -40,6 +41,7 @@ class Catapult():
 
     def updateSpoonRotation(self, time_delta):
         if (self.is_shooting and self.spoon_angle >= self.shot_target_angle):
+            pygame.event.post(pygame.event.Event(Event.EVENT_FIRE))
             self.is_shooting = False
             self.is_restarting = True
 
