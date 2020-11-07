@@ -6,11 +6,12 @@ import pygame_gui
 import random
 import math
 from datetime import datetime
+from event import Event
 from catapult import Catapult
 from moon import Moon
 from ground import Ground
 from astronaut import Astronaut
-from event import Event
+from clouds import Clouds
 
 pygame.init()
 
@@ -19,14 +20,13 @@ black = (0, 0, 0)
 (width, height) = (800, 600) # Dimension of the window
 screen = pygame.display.set_mode((width, height)) # Making of the screen
 pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
-
-background = pygame.Surface((width, height))
-background.fill(pygame.Color('#79B2EC'))
+background = pygame.image.load('./images/bg.png')
 
 ground = Ground()
 moon = Moon(630, 20)
 catapult = Catapult(50, 480)
 astronaut = Astronaut(20, 490, catapult)
+clouds = Clouds()
 
 clock = pygame.time.Clock()
 is_running = True
@@ -40,19 +40,29 @@ while is_running:
           if event.key == pygame.K_ESCAPE:
               is_running = False
           if event.key == pygame.K_SPACE:
-              catapult.shot()
+              if (astronaut.landed):
+                  astronaut.respawn()
+              else:
+                  catapult.shot()
+
       if event.type == Event.EVENT_FIRE:
           astronaut.fire()
       if event.type == Event.EVENT_RESPAWN:
           astronaut.respawn()
 
     astronaut.check_position(width, height)
-    screen.blit(background, (0, 0))
     catapult.update(time_delta)
+    astronaut.update(time_delta)
+    clouds.update(time_delta)
 
+    screen.blit(background, (0, 0))
     ground.draw(screen, width)
     moon.draw(screen)
     astronaut.draw(screen)
     catapult.draw(screen)
+    clouds.draw(screen)
+
+    if moon.center_dist(astronaut.get_center_position()) < 0.8:
+        astronaut.land_on_moon()
 
     pygame.display.update()

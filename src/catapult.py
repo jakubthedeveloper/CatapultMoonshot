@@ -13,7 +13,7 @@ class Catapult():
         self.scale = 0.75
         self.shot_target_angle = 60
         self.spoon_idle_speed = 10
-        self.spoon_shot_speed = 200
+        self.spoon_shot_speed = 300
         self.spoon_restart_speed = 70
 
         self.time = 0
