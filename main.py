@@ -25,7 +25,7 @@ background.fill(pygame.Color('#79B2EC'))
 ground = Ground()
 moon = Moon(630, 20)
 catapult = Catapult(50, 480)
-astronaut = Astronaut(20, 490)
+astronaut = Astronaut(20, 490, catapult)
 
 clock = pygame.time.Clock()
 is_running = True
@@ -46,7 +46,7 @@ while is_running:
 
     ground.draw(screen, width)
     moon.draw(screen)
-    catapult.draw(screen)
     astronaut.draw(screen)
+    catapult.draw(screen)
 
     pygame.display.update()

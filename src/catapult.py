@@ -21,10 +21,19 @@ class Catapult():
         self.spoon_angle = 0
 
         # Store the original center position of the surface.
-        self.spoon_pivot = [self.position_x + (94 * self.scale), self.position_y + (18 * self.scale)]
+        self.spoon_pivot = [self.position_x + math.ceil(94 * self.scale), self.position_y + math.ceil(18 * self.scale)]
         # This offset vector will be added to the pivot point, so the
         # resulting rect will be blitted at `rect.topleft + offset`.
         self.spoon_pivot_offset = pygame.math.Vector2(-70 * self.scale, 5 * self.scale)
+
+    def spoon_angle(self):
+        return self.spoon_angle
+
+    def spoon_pivot(self):
+        return self.spoon_pivot
+
+    def spoon_pivot_offset(self):
+        return self.spoon_pivot_offset
 
     def shot(self):
         self.is_shooting = True
@@ -60,10 +69,11 @@ class Catapult():
             self.spoon_pivot_offset
         )
         screen.blit(rotated_spoon, rect)  # Blit the rotated image.
-        #pygame.draw.circle(screen, (30, 250, 70), self.spoon_pivot, 3)  # Pivot point.
-        #pygame.draw.rect(screen, (30, 250, 70), rect, 1)  # The rect.
 
         screen.blit(
             pygame.transform.rotozoom(self.image, 0, self.scale),
             (self.position_x, self.position_y)
         )
+
+        #pygame.draw.circle(screen, (30, 250, 70), self.spoon_pivot, 3)  # Pivot point.
+        #pygame.draw.rect(screen, (30, 250, 70), rect, 1)  # The rect.
