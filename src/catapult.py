@@ -9,7 +9,7 @@ class Catapult():
         self.spoon_image = pygame.image.load('./images/catapult-spoon-small.png')
         self.position_x = position_x
         self.position_y = position_y
-        self.scale = 0.7
+        self.scale = 0.75
         self.shot_target_angle = 60
         self.spoon_idle_speed = 10
         self.spoon_shot_speed = 200

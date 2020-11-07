@@ -9,6 +9,7 @@ from datetime import datetime
 from catapult import Catapult
 from moon import Moon
 from ground import Ground
+from astronaut import Astronaut
 
 pygame.init()
 
@@ -21,9 +22,10 @@ pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
 background = pygame.Surface((width, height))
 background.fill(pygame.Color('#79B2EC'))
 
-catapult = Catapult(50, 480)
-moon = Moon(630, 20)
 ground = Ground()
+moon = Moon(630, 20)
+catapult = Catapult(50, 480)
+astronaut = Astronaut(20, 490)
 
 clock = pygame.time.Clock()
 is_running = True
@@ -34,6 +36,8 @@ while is_running:
       if event.type == pygame.QUIT:
           is_running = False
       if event.type == pygame.KEYDOWN:
+          if event.key == pygame.K_ESCAPE:
+              is_running = False
           if event.key == pygame.K_SPACE:
               catapult.shot()
 
@@ -41,7 +45,8 @@ while is_running:
     catapult.update(time_delta)
 
     ground.draw(screen, width)
-    catapult.draw(screen)
     moon.draw(screen)
+    catapult.draw(screen)
+    astronaut.draw(screen)
 
     pygame.display.update()
