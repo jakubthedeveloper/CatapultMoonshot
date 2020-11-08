@@ -81,9 +81,7 @@ class Astronaut():
             self.catapult.spoon_pivot,
             self.spoon_pivot_offset
         )
-        screen.blit(rotated_astronaut, rect)  # Blit the rotated image.
+        screen.blit(rotated_astronaut, rect)
 
         self.position = (rect[0], rect[1])
         self.angle = self.catapult.spoon_angle
-
-        #pygame.draw.circle(screen, (30, 250, 70), self.catapult.spoon_pivot, 3)
