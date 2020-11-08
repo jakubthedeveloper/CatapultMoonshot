@@ -20,18 +20,19 @@ class Astronaut():
         self.position_linear = self.position
         self.initial_flight_y = -2.5
         self.flight_y = self.initial_flight_y
-        self.flight_y_change = 0.0
+        self.flight_curve_factor = 0.0
+        self.flight_curve_scale = 2.0
 
         self.spoon_pivot_offset = pygame.math.Vector2(
             self.catapult.spoon_pivot_offset[0] - 38,
             self.catapult.spoon_pivot_offset[1] - 22
         )
 
-    def fire(self, flight_y_change):
+    def fire(self, flight_curve_factor):
         self.flying = True
         self.boost = self.initial_boost
         self.flight_y = self.initial_flight_y
-        self.flight_y_change = flight_y_change
+        self.flight_curve_factor = flight_curve_factor * self.flight_curve_scale
 
     def respawn(self):
         self.flying = False
@@ -44,7 +45,7 @@ class Astronaut():
         )
 
     def check_position(self, screen_width, screen_height):
-        if self.position[0] > screen_width or self.position[0] < 0 - self.image.get_size()[1] * self.scale:
+        if self.position[0] > screen_width or self.position[1] < 0 - self.image.get_size()[1] * self.scale:
             pygame.event.post(pygame.event.Event(Event.EVENT_RESPAWN))
 
     def land_on_moon(self):
@@ -56,7 +57,7 @@ class Astronaut():
             if self.boost > 0:
                 self.boost = max(0, self.boost - self.boost_decrease)
 
-            self.flight_y = self.flight_y + (self.flight_y_change * time_delta)
+            self.flight_y = self.flight_y + (self.flight_curve_factor * time_delta)
             self.position = self.position + pygame.math.Vector2(5, self.flight_y) * (self.fly_speed + self.boost) * time_delta
 
     def draw(self, screen):

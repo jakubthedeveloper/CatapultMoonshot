@@ -23,12 +23,16 @@ screen = pygame.display.set_mode((width, height)) # Making of the screen
 pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
 background = pygame.image.load('./images/bg.png')
 
+SPEED_EASY = 5
+SPEED_HARD = 10
+SPEED_EXTREME = 15
+
 ground = Ground()
 moon = Moon(630, 20)
 catapult = Catapult(50, 480)
 astronaut = Astronaut(20, 490, catapult)
 clouds = Clouds()
-curve_bar = ParameterBar(10, 10, 10)
+curve_bar = ParameterBar(10, 10, SPEED_EASY)
 
 clock = pygame.time.Clock()
 is_running = True
@@ -42,7 +46,7 @@ while is_running:
           if event.key == pygame.K_ESCAPE:
               is_running = False
           if event.key == pygame.K_SPACE:
-              if (astronaut.landed):
+              if astronaut.landed:
                   astronaut.respawn()
                   curve_bar.restart()
               else:
@@ -50,7 +54,8 @@ while is_running:
                   curve_bar.freeze()
 
       if event.type == Event.EVENT_FIRE:
-          astronaut.fire(curve_bar.get_value())
+          if not astronaut.flying and not astronaut.landed:
+              astronaut.fire(curve_bar.get_value())
       if event.type == Event.EVENT_RESPAWN:
           astronaut.respawn()
           curve_bar.restart()
