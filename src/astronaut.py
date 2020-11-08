@@ -20,17 +20,18 @@ class Astronaut():
         self.position_linear = self.position
         self.initial_flight_y = -2.5
         self.flight_y = self.initial_flight_y
-        self.flight_y_change = 0.0 # TODO: UI parameter, from -1.0 to 1.0
+        self.flight_y_change = 0.0
 
         self.spoon_pivot_offset = pygame.math.Vector2(
             self.catapult.spoon_pivot_offset[0] - 38,
             self.catapult.spoon_pivot_offset[1] - 22
         )
 
-    def fire(self):
+    def fire(self, flight_y_change):
         self.flying = True
         self.boost = self.initial_boost
         self.flight_y = self.initial_flight_y
+        self.flight_y_change = flight_y_change
 
     def respawn(self):
         self.flying = False

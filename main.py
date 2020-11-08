@@ -12,6 +12,7 @@ from moon import Moon
 from ground import Ground
 from astronaut import Astronaut
 from clouds import Clouds
+from parameter_bar import ParameterBar
 
 pygame.init()
 
@@ -27,6 +28,7 @@ moon = Moon(630, 20)
 catapult = Catapult(50, 480)
 astronaut = Astronaut(20, 490, catapult)
 clouds = Clouds()
+curve_bar = ParameterBar(10, 10, 10)
 
 clock = pygame.time.Clock()
 is_running = True
@@ -42,18 +44,22 @@ while is_running:
           if event.key == pygame.K_SPACE:
               if (astronaut.landed):
                   astronaut.respawn()
+                  curve_bar.restart()
               else:
                   catapult.shot()
+                  curve_bar.freeze()
 
       if event.type == Event.EVENT_FIRE:
-          astronaut.fire()
+          astronaut.fire(curve_bar.get_value())
       if event.type == Event.EVENT_RESPAWN:
           astronaut.respawn()
+          curve_bar.restart()
 
     astronaut.check_position(width, height)
     catapult.update(time_delta)
     astronaut.update(time_delta)
     clouds.update(time_delta)
+    curve_bar.update(time_delta)
 
     screen.blit(background, (0, 0))
     ground.draw(screen, width)
@@ -61,6 +67,7 @@ while is_running:
     astronaut.draw(screen)
     catapult.draw(screen)
     clouds.draw(screen)
+    curve_bar.draw(screen)
 
     if moon.center_dist(astronaut.get_center_position()) < 0.8:
         astronaut.land_on_moon()
