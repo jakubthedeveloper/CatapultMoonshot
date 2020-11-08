@@ -17,7 +17,7 @@ My interpretation of the theme is a game in which you send astronaut to the moon
 
 Game is written in Python with Pygame.
 
-# Run
+# Run with python
 
 Just execute:
 
@@ -30,6 +30,17 @@ Requirements:
 Python >= 3.5
 Pygame
 Pygame_gui
+
+# Run - windows exe
+
+Download exe file from dist folder and open it.
+
+# Build on windows
+
+```
+pip install pyinstaller
+python build_win.py
+```
 
 # License
 
