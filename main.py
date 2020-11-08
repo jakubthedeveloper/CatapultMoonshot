@@ -41,6 +41,14 @@ shoot_sound.set_volume(0.5)
 flight_sound = pygame.mixer.Sound('./sounds/flight.wav')
 flight_sound.set_volume(0.5)
 
+message_font = pygame.font.Font('./fonts/upheavtt.ttf', 24)
+landed_messages = [
+    message_font.render("You have successfully landed on the moon", True, (255, 255, 255)),
+    message_font.render("Press Space to play again", True, (255, 255, 255)),
+    message_font.render("or Esc to return to the main menu.", True, (255, 255, 255)),
+]
+show_landed_messages = False
+
 SPEED_BABY = 2
 SPEED_EASY = 5
 SPEED_HARD = 10
@@ -56,6 +64,7 @@ clock = pygame.time.Clock()
 menu = Menu(screen, clock)
 
 while True:
+    show_landed_messages = False
     difficulty = menu.run()
 
     if difficulty == 'extreme':
@@ -83,6 +92,7 @@ while True:
                       is_running = False
                   if event.key == pygame.K_SPACE:
                       if astronaut.landed:
+                          show_landed_messages = False
                           astronaut.respawn()
                           curve_bar.restart()
                           you_win_sound.fadeout(500)
@@ -101,6 +111,7 @@ while True:
                   astronaut.respawn()
                   curve_bar.restart()
               if event.type == Event.EVENT_LANDED:
+                  show_landed_messages = True
                   flight_sound.fadeout(100)
                   you_win_sound.play(0)
 
@@ -117,6 +128,10 @@ while True:
             catapult.draw(screen)
             clouds.draw(screen)
             curve_bar.draw(screen)
+
+            if show_landed_messages:
+                for i in range(len(landed_messages)):
+                    screen.blit(landed_messages[i], (140, 180 + (i * 40)))
 
             if moon.center_dist(astronaut.get_center_position()) < 0.8:
                 astronaut.land_on_moon()
