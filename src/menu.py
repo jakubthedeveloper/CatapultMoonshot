@@ -28,7 +28,7 @@ class Menu(object):
         self.title_font = pygame.font.Font('./fonts/upheavtt.ttf', 36)
         self.title = self.title_font.render("Catapult MoonShoot", True, (255, 255, 255))
 
-        self.menu_font = pygame.font.SysFont('Verdana', 26)
+        self.menu_font = pygame.font.SysFont('Verdana', 24)
 
         self.label_instructions = [
             self.menu_font.render("Instruction:", True, (255, 255, 255)),
@@ -36,6 +36,9 @@ class Menu(object):
             self.menu_font.render("Try to shoot when the indicator is in the middle.", True, (255, 255, 255))
         ]
         self.label_select_difficulty = self.menu_font.render("Select difficulty:", True, (255, 255, 255))
+
+        self.author_font = pygame.font.SysFont('Verdana', 16)
+        self.label_author = self.author_font.render("Author: github.com/jakubthedeveloper", True, (255, 255, 255))
 
         self.astronaut_image = pygame.image.load('./images/astronaut/Charac_S-S02-idle_0.png')
         self.moon_image = pygame.image.load('./images/moon.png')
@@ -91,6 +94,8 @@ class Menu(object):
             button.draw(self.screen, pygame.mouse.get_pos())
 
         self.bar.draw(self.screen)
+
+        self.screen.blit(self.label_author, (260, 580))
 
         pygame.display.flip()
 
