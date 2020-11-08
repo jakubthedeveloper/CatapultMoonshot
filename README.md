@@ -28,5 +28,7 @@ python3 main.py
 I'm the author of the code, but I'm not an author of the sounds, images and fonts, so I can't allow to use these assets in other projects.
 
 All sounds come from [freesound.com](https://freesound.org/)
+
 Images come from the pack [mobilegamegraphics.com](https://mobilegamegraphics.com/product/vector-space-game-character-sprites/) and from [opengameart.org](https://opengameart.org/)
+
 Font come from [dafont.com](https://www.dafont.com/)
