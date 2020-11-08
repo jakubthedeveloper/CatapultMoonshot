@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 import sys
-sys.path.insert(0, './src')
+sys.path.insert(0, os.path.join("src"))
 
 import pygame
 import pygame_gui
@@ -27,21 +28,21 @@ black = (0, 0, 0)
 (width, height) = (800, 600) # Dimension of the window
 screen = pygame.display.set_mode((width, height)) # Making of the screen
 pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
-background = pygame.image.load('./images/bg.png')
+background = pygame.image.load(os.path.join("images", "bg.png"))
 
-you_win_sound = pygame.mixer.Sound('./sounds/you-win.wav')
+you_win_sound = pygame.mixer.Sound(os.path.join("sounds", "you-win.wav"))
 you_win_sound.set_volume(1.0)
 
-you_loose_sound = pygame.mixer.Sound('./sounds/you-loose.wav')
+you_loose_sound = pygame.mixer.Sound(os.path.join("sounds", "you-loose.wav"))
 you_loose_sound.set_volume(1.0)
 
-shoot_sound = pygame.mixer.Sound('./sounds/bow.wav')
+shoot_sound = pygame.mixer.Sound(os.path.join("sounds", "bow.wav"))
 shoot_sound.set_volume(1.0)
 
-flight_sound = pygame.mixer.Sound('./sounds/flight.wav')
+flight_sound = pygame.mixer.Sound(os.path.join("sounds", "flight.wav"))
 flight_sound.set_volume(1.0)
 
-message_font = pygame.font.Font('./fonts/upheavtt.ttf', 24)
+message_font = pygame.font.Font(os.path.join("fonts", "upheavtt.ttf"), 24)
 landed_messages = [
     message_font.render("You have successfully landed on the moon", True, (255, 255, 255)),
     message_font.render("Press Space to play again", True, (255, 255, 255)),

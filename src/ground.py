@@ -1,9 +1,10 @@
+import os
 import pygame
 import math
 
 class Ground():
     def __init__(self):
-        self.image = pygame.image.load('./images/ground.png')
+        self.image = pygame.image.load(os.path.join("images", "ground.png"))
         self.scale = 0.4
         self.image_width = math.ceil(self.image.get_size()[0] * self.scale)
         self.image_height = math.ceil(self.image.get_size()[1] * self.scale)

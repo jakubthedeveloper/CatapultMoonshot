@@ -1,9 +1,10 @@
+import os
 import pygame
 import math
 
 class Clouds():
     def __init__(self):
-        self.image = pygame.image.load('./images/clouds.png')
+        self.image = pygame.image.load(os.path.join("images", "clouds.png"))
         alpha = 50
         self.image.fill((255, 255, 255, alpha), None, pygame.BLEND_RGBA_MULT)
         self.image_width = self.image.get_size()[0]

@@ -1,3 +1,4 @@
+import os
 import random
 import pygame
 import math
@@ -6,8 +7,8 @@ from event import Event
 
 class Catapult():
     def __init__(self, position_x, position_y):
-        self.image = pygame.image.load('./images/catapult-small.png')
-        self.spoon_image = pygame.image.load('./images/catapult-spoon-small.png')
+        self.image = pygame.image.load(os.path.join("images", "catapult-small.png"))
+        self.spoon_image = pygame.image.load(os.path.join("images", "catapult-spoon-small.png"))
         self.position_x = position_x
         self.position_y = position_y
         self.scale = 0.75

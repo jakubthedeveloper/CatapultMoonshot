@@ -1,9 +1,10 @@
+import os
 import pygame
 import math
 
 class Moon():
     def __init__(self, position_x, position_y):
-        self.image = pygame.image.load('./images/moon.png')
+        self.image = pygame.image.load(os.path.join("images", "moon.png"))
         self.position_x = position_x
         self.position_y = position_y
         self.scale = 0.3

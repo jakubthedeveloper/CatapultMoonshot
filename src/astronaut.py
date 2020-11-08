@@ -1,3 +1,4 @@
+import os
 import pygame
 from utils import Utils
 from event import Event
@@ -5,8 +6,8 @@ import math
 
 class Astronaut():
     def __init__(self, position_x, position_y, catapult):
-        self.image = pygame.image.load('./images/astronaut/Charac_S-S02-idle_0.png')
-        self.image_front = pygame.image.load('./images/astronaut/Charac_F-S02-Idle_0.png')
+        self.image = pygame.image.load(os.path.join("images", "astronaut", "Charac_S-S02-idle_0.png"))
+        self.image_front = pygame.image.load(os.path.join("images", "astronaut", "Charac_F-S02-Idle_0.png"))
         self.position = (position_x, position_y)
         self.catapult = catapult
         self.scale = 0.1

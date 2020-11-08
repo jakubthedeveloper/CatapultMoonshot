@@ -1,3 +1,4 @@
+import os
 import pygame
 import sys
 from menu_button import MenuButton
@@ -25,7 +26,7 @@ class Menu(object):
             MenuButton('Quit', screen_width / 2, 540, 140, 30, 20, lambda: self.quit())
         ]
 
-        self.title_font = pygame.font.Font('./fonts/upheavtt.ttf', 36)
+        self.title_font = pygame.font.Font(os.path.join("fonts", "upheavtt.ttf"), 36)
         self.title = self.title_font.render("Catapult MoonShoot", True, (255, 255, 255))
 
         self.menu_font = pygame.font.SysFont('Verdana', 24)
@@ -40,13 +41,13 @@ class Menu(object):
         self.author_font = pygame.font.SysFont('Verdana', 16)
         self.label_author = self.author_font.render("Author: github.com/jakubthedeveloper", True, (255, 255, 255))
 
-        self.astronaut_image = pygame.image.load('./images/astronaut/Charac_S-S02-idle_0.png')
-        self.moon_image = pygame.image.load('./images/moon.png')
+        self.astronaut_image = pygame.image.load(os.path.join("images", "astronaut", "Charac_S-S02-idle_0.png"))
+        self.moon_image = pygame.image.load(os.path.join("images", "moon.png"))
         self.catapult_preview = CatapultPreview(330, 460)
 
         self.bar = ParameterBar(300, 220, 0)
 
-        self.click_sound = pygame.mixer.Sound('./sounds/click.wav')
+        self.click_sound = pygame.mixer.Sound(os.path.join("sounds", "click.wav"))
         self.click_sound.set_volume(1.0)
 
     def quit(self):

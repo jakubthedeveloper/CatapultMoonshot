@@ -1,10 +1,11 @@
+import os
 import pygame
 import math
 
 class ParameterBar():
     def __init__(self, position_x, position_y, speed):
-        self.background_image = pygame.image.load('./images/parameter-bar-bg.png')
-        self.pointer_image  = pygame.image.load('./images/parameter-bar-pointer.png')
+        self.background_image = pygame.image.load(os.path.join("images", "parameter-bar-bg.png"))
+        self.pointer_image  = pygame.image.load(os.path.join("images", "parameter-bar-pointer.png"))
         self.scale = 0.4
         self.position_x = position_x
         self.position_y = position_y
