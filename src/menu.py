@@ -3,6 +3,7 @@ import sys
 from menu_button import MenuButton
 from catapult_preview import CatapultPreview
 from parameter_bar import ParameterBar
+from event import Event
 
 class Menu(object):
     done = False
@@ -42,6 +43,9 @@ class Menu(object):
 
         self.bar = ParameterBar(300, 220, 0)
 
+        self.click_sound = pygame.mixer.Sound('./sounds/click.wav')
+        self.click_sound.set_volume(0.5)
+
     def quit(self):
         self.done = True
         pygame.quit()
@@ -58,6 +62,7 @@ class Menu(object):
             if event.type == pygame.MOUSEBUTTONUP:
                 for button in self.buttons:
                     if button.checkMouseOver(pygame.mouse.get_pos()):
+                        self.click_sound.play(0)
                         button.click_callback()
 
     def draw(self):
