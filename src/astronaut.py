@@ -18,6 +18,9 @@ class Astronaut():
         self.boost_decrease = 1
         self.boost = 0
         self.position_linear = self.position
+        self.initial_flight_y = -2.5
+        self.flight_y = self.initial_flight_y
+        self.flight_y_change = 0.0 # TODO: UI parameter, from -1.0 to 1.0
 
         self.spoon_pivot_offset = pygame.math.Vector2(
             self.catapult.spoon_pivot_offset[0] - 38,
@@ -27,7 +30,7 @@ class Astronaut():
     def fire(self):
         self.flying = True
         self.boost = self.initial_boost
-        self.position_linear = self.position
+        self.flight_y = self.initial_flight_y
 
     def respawn(self):
         self.flying = False
@@ -47,20 +50,13 @@ class Astronaut():
         self.flying = False
         self.landed = True
 
-    def apply_flight_curve(self, position_linear):
-        # TODO: flight curve formula
-        return (
-            position_linear[0],
-            position_linear[1]
-        )
-
     def update(self, time_delta):
         if self.flying and not self.landed:
             if self.boost > 0:
                 self.boost = max(0, self.boost - self.boost_decrease)
 
-            self.position_linear = self.position_linear + pygame.math.Vector2(5, -2.5) * (self.fly_speed + self.boost) * time_delta
-            self.position = self.apply_flight_curve(self.position_linear)
+            self.flight_y = self.flight_y + (self.flight_y_change * time_delta)
+            self.position = self.position + pygame.math.Vector2(5, self.flight_y) * (self.fly_speed + self.boost) * time_delta
 
     def draw(self, screen):
         if self.landed:
