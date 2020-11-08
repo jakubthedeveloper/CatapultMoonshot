@@ -45,12 +45,17 @@ class Astronaut():
         )
 
     def check_position(self, screen_width, screen_height):
+        if not self.flying or self.landed:
+            return
+
         if self.position[0] > screen_width or self.position[1] < 0 - self.image.get_size()[1] * self.scale:
-            pygame.event.post(pygame.event.Event(Event.EVENT_RESPAWN))
+            pygame.event.post(pygame.event.Event(Event.EVENT_LOOSE))
 
     def land_on_moon(self):
-        self.flying = False
-        self.landed = True
+        if not self.landed:
+            self.flying = False
+            self.landed = True
+            pygame.event.post(pygame.event.Event(Event.EVENT_LANDED))
 
     def update(self, time_delta):
         if self.flying and not self.landed:

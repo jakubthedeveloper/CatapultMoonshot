@@ -2,6 +2,7 @@ import pygame
 import sys
 from menu_button import MenuButton
 from catapult_preview import CatapultPreview
+from parameter_bar import ParameterBar
 
 class Menu(object):
     done = False
@@ -16,10 +17,10 @@ class Menu(object):
 
         screen_width = screen.get_size()[0]
         self.buttons = [
-            MenuButton('Easy', screen_width / 2 - 200, 320, lambda: self.start('easy')),
-            MenuButton('Hard', screen_width / 2, 320, lambda: self.start('hard')),
-            MenuButton('Extreme', screen_width / 2 + 200, 320, lambda: self.start('extreme')),
-            MenuButton('Quit', screen_width / 2, 525, lambda: self.quit())
+            MenuButton('Easy', screen_width / 2 - 200, 360, lambda: self.start('easy')),
+            MenuButton('Hard', screen_width / 2, 360, lambda: self.start('hard')),
+            MenuButton('Extreme', screen_width / 2 + 200, 360, lambda: self.start('extreme')),
+            MenuButton('Quit', screen_width / 2, 540, lambda: self.quit())
         ]
 
         self.title_font = pygame.font.Font('./fonts/upheavtt.ttf', 36)
@@ -36,7 +37,9 @@ class Menu(object):
 
         self.astronaut_image = pygame.image.load('./images/astronaut/Charac_S-S02-idle_0.png')
         self.moon_image = pygame.image.load('./images/moon.png')
-        self.catapult_preview = CatapultPreview(330, 420)
+        self.catapult_preview = CatapultPreview(330, 435)
+
+        self.bar = ParameterBar(300, 220, 0)
 
     def quit(self):
         self.done = True
@@ -74,12 +77,14 @@ class Menu(object):
             (620, 30)
         )
 
-        self.screen.blit(self.label_select_difficulty, (100, 240))
+        self.screen.blit(self.label_select_difficulty, (100, 280))
 
         self.catapult_preview.draw(self.screen)
 
         for button in self.buttons:
             button.draw(self.screen, pygame.mouse.get_pos())
+
+        self.bar.draw(self.screen)
 
         pygame.display.flip()
 

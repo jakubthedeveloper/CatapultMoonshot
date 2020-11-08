@@ -19,6 +19,8 @@ from parameter_bar import ParameterBar
 from menu import Menu
 
 pygame.init()
+pygame.mixer.pre_init(44100, 16, 2, 4096)
+pygame.mixer.init()
 
 white = (255, 255, 255)
 black = (0, 0, 0)
@@ -26,6 +28,15 @@ black = (0, 0, 0)
 screen = pygame.display.set_mode((width, height)) # Making of the screen
 pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
 background = pygame.image.load('./images/bg.png')
+
+you_win_sound = pygame.mixer.Sound('./sounds/you-win.wav')
+you_win_sound.set_volume(0.5)
+
+you_loose_sound = pygame.mixer.Sound('./sounds/you-loose.wav')
+you_loose_sound.set_volume(0.5)
+
+shoot_sound = pygame.mixer.Sound('./sounds/bow.wav')
+shoot_sound.set_volume(0.5)
 
 SPEED_EASY = 5
 SPEED_HARD = 10
@@ -38,7 +49,6 @@ astronaut = Astronaut(20, 490, catapult)
 clouds = Clouds()
 
 clock = pygame.time.Clock()
-
 menu = Menu(screen, clock)
 
 while True:
@@ -69,16 +79,21 @@ while True:
                       if astronaut.landed:
                           astronaut.respawn()
                           curve_bar.restart()
+                          you_win_sound.fadeout(1000)
                       else:
                           catapult.shot()
                           curve_bar.freeze()
+                          shoot_sound.play(0)
 
               if event.type == Event.EVENT_FIRE:
                   if not astronaut.flying and not astronaut.landed:
                       astronaut.fire(curve_bar.get_value())
-              if event.type == Event.EVENT_RESPAWN:
+              if event.type == Event.EVENT_LOOSE:
+                  you_loose_sound.play(0)
                   astronaut.respawn()
                   curve_bar.restart()
+              if event.type == Event.EVENT_LANDED:
+                  you_win_sound.play(0)
 
             astronaut.check_position(width, height)
             catapult.update(time_delta)
