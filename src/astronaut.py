@@ -10,12 +10,12 @@ class Astronaut():
         self.position = (position_x, position_y)
         self.catapult = catapult
         self.scale = 0.1
-        self.fly_speed = 30
+        self.fly_speed = 50
         self.flying = False
         self.landed = False
         self.angle = 0
-        self.initial_boost = 30
-        self.boost_decrease = 1
+        self.initial_boost = 0
+        self.boost_increase = 1
         self.boost = 0
         self.position_linear = self.position
         self.initial_flight_y = -2.5
@@ -60,7 +60,7 @@ class Astronaut():
     def update(self, time_delta):
         if self.flying and not self.landed:
             if self.boost > 0:
-                self.boost = max(0, self.boost - self.boost_decrease)
+                self.boost = max(0, self.boost + self.boost_increase)
 
             self.flight_y = self.flight_y + (self.flight_curve_factor * time_delta)
             self.position = self.position + pygame.math.Vector2(5, self.flight_y) * (self.fly_speed + self.boost) * time_delta

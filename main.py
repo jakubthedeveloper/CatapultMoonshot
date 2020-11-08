@@ -38,6 +38,9 @@ you_loose_sound.set_volume(0.5)
 shoot_sound = pygame.mixer.Sound('./sounds/bow.wav')
 shoot_sound.set_volume(0.5)
 
+flight_sound = pygame.mixer.Sound('./sounds/flight.wav')
+flight_sound.set_volume(0.5)
+
 SPEED_EASY = 5
 SPEED_HARD = 10
 SPEED_EXTREME = 15
@@ -79,20 +82,23 @@ while True:
                       if astronaut.landed:
                           astronaut.respawn()
                           curve_bar.restart()
-                          you_win_sound.fadeout(1000)
+                          you_win_sound.fadeout(500)
                       else:
+                          shoot_sound.play(0)
                           catapult.shot()
                           curve_bar.freeze()
-                          shoot_sound.play(0)
 
               if event.type == Event.EVENT_FIRE:
                   if not astronaut.flying and not astronaut.landed:
                       astronaut.fire(curve_bar.get_value())
+                      flight_sound.play(0, 0, 1000)
               if event.type == Event.EVENT_LOOSE:
                   you_loose_sound.play(0)
+                  flight_sound.fadeout(100)
                   astronaut.respawn()
                   curve_bar.restart()
               if event.type == Event.EVENT_LANDED:
+                  flight_sound.fadeout(100)
                   you_win_sound.play(0)
 
             astronaut.check_position(width, height)
@@ -114,4 +120,6 @@ while True:
 
             pygame.display.update()
 
+    you_win_sound.fadeout(1000)
+    flight_sound.fadeout(500)
 pygame.quit()
