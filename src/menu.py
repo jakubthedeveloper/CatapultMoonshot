@@ -29,8 +29,8 @@ class Menu(object):
 
         self.label_instructions = [
             self.menu_font.render("Instruction:", True, (255, 255, 255)),
-            self.menu_font.render("Press space to shot the astronaut.", True, (255, 255, 255)),
-            self.menu_font.render("Try to shot when the indicator is in the middle.", True, (255, 255, 255))
+            self.menu_font.render("Press space to shoot the astronaut.", True, (255, 255, 255)),
+            self.menu_font.render("Try to shoot when the indicator is in the middle.", True, (255, 255, 255))
         ]
         self.label_select_difficulty = self.menu_font.render("Select difficulty:", True, (255, 255, 255))
 
