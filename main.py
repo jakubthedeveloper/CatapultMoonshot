@@ -3,6 +3,10 @@
 
 import os
 import sys
+
+if getattr(sys, 'frozen', False):
+    os.chdir(sys._MEIPASS)
+
 sys.path.insert(0, os.path.join("src"))
 
 import pygame
