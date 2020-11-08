@@ -4,8 +4,6 @@
 import pygame
 
 class MenuButton(object):
-    BUTTON_WIDTH  = 200
-    BUTTON_HEIGHT = 80
     BACKGROUND_COLOR_NORMAL = (61, 61, 61)
     BACKGROUND_COLOR_MOUSEOVER = (107, 107, 107)
 
@@ -16,18 +14,19 @@ class MenuButton(object):
     button_center_x = 0
     button_center_y = 0
 
-    def __init__(self, label, button_center_x, button_center_y, click_callback):
+    def __init__(self, label, button_center_x, button_center_y, width, height, font_size, click_callback):
         self.label = label
         self.button_center_x = button_center_x
         self.button_center_y = button_center_y
         self.click_callback = click_callback
+        self.font_size = font_size
 
-        self.label_font = pygame.font.SysFont('Verdana', 24)
+        self.label_font = pygame.font.SysFont('Verdana', self.font_size)
         self.button_rectangle = [
-            button_center_x - (self.BUTTON_WIDTH / 2),
-            button_center_y - (self.BUTTON_HEIGHT / 2),
-            self.BUTTON_WIDTH,
-            self.BUTTON_HEIGHT
+            button_center_x - (width / 2),
+            button_center_y - (height / 2),
+            width,
+            height
         ]
 
     def checkMouseOver(self, mouse_position):
@@ -40,4 +39,4 @@ class MenuButton(object):
         pygame.draw.rect(screen, self.BACKGROUND_COLOR_NORMAL if not is_mouse_over else self.BACKGROUND_COLOR_MOUSEOVER, self.button_rectangle, 0)
         pygame.draw.rect(screen, (255, 255, 255), self.button_rectangle, 1)
         button_text = self.label_font.render(self.label, True, (255, 255, 255))
-        screen.blit(button_text, (self.button_center_x - (button_text.get_width() / 2), self.button_center_y - 16))
+        screen.blit(button_text, (self.button_center_x - (button_text.get_width() / 2), self.button_center_y - self.font_size * 0.5))

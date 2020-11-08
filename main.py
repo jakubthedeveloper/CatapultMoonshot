@@ -41,6 +41,7 @@ shoot_sound.set_volume(0.5)
 flight_sound = pygame.mixer.Sound('./sounds/flight.wav')
 flight_sound.set_volume(0.5)
 
+SPEED_BABY = 2
 SPEED_EASY = 5
 SPEED_HARD = 10
 SPEED_EXTREME = 15
@@ -61,6 +62,8 @@ while True:
         speed = SPEED_EXTREME
     elif difficulty == 'hard':
         speed = SPEED_HARD
+    elif difficulty == 'baby':
+        speed = SPEED_BABY
     else:
         speed = SPEED_EASY
 

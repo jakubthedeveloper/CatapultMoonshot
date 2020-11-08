@@ -17,10 +17,11 @@ class Menu(object):
 
         screen_width = screen.get_size()[0]
         self.buttons = [
-            MenuButton('Easy', screen_width / 2 - 200, 360, lambda: self.start('easy')),
-            MenuButton('Hard', screen_width / 2, 360, lambda: self.start('hard')),
-            MenuButton('Extreme', screen_width / 2 + 200, 360, lambda: self.start('extreme')),
-            MenuButton('Quit', screen_width / 2, 540, lambda: self.quit())
+            MenuButton('Baby', 170, 360, 140, 80, 24, lambda: self.start('baby')),
+            MenuButton('Easy', 320, 360, 140, 80, 24, lambda: self.start('easy')),
+            MenuButton('Hard', 470, 360, 140, 80, 24, lambda: self.start('hard')),
+            MenuButton('Extreme', 620, 360, 140, 80, 24, lambda: self.start('extreme')),
+            MenuButton('Quit', screen_width / 2, 540, 140, 30, 20, lambda: self.quit())
         ]
 
         self.title_font = pygame.font.Font('./fonts/upheavtt.ttf', 36)
@@ -37,7 +38,7 @@ class Menu(object):
 
         self.astronaut_image = pygame.image.load('./images/astronaut/Charac_S-S02-idle_0.png')
         self.moon_image = pygame.image.load('./images/moon.png')
-        self.catapult_preview = CatapultPreview(330, 435)
+        self.catapult_preview = CatapultPreview(330, 460)
 
         self.bar = ParameterBar(300, 220, 0)
 
