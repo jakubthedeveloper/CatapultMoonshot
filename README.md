@@ -19,7 +19,7 @@ Game is written in Python with Pygame.
 
 # Run with python
 
-Just execute:
+If you have python 3 installed, execute:
 
 ```
 python3 main.py
@@ -27,13 +27,13 @@ python3 main.py
 
 Requirements:
 
-Python >= 3.5
-Pygame
-Pygame_gui
+- Python 3
+- Pygame
+- Pygame_gui
 
 # Run - windows exe
 
-Download exe file from dist folder and open it.
+Download [exe file from dist folder](https://github.com/jakubthedeveloper/Moonshot/blob/main/dist/Catapult%20Moonshot.exe) and open it.
 
 # Build on windows
 
