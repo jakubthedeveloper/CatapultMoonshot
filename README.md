@@ -25,6 +25,12 @@ Just execute:
 python3 main.py
 ```
 
+Requirements:
+
+Python >= 3.5
+Pygame
+Pygame_gui
+
 # License
 
 I'm the author of the code, but I'm not an author of the sounds, images and fonts, so I can't allow to use these assets in other projects.
