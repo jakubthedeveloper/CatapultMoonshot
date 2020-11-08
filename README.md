@@ -11,6 +11,8 @@ This project is a game for game jam [Game Off 2020 @ itch.io](https://itch.io/ja
 > the act of launching a spacecraft to the moon
 > a hit or thrown ball that travels a great distance with a high trajectory
 
+My interpretation of the theme is a game in which you send astronaut to the moon with... a catapult :)
+
 # Technology
 
 Game is written in Python with Pygame.

@@ -30,16 +30,16 @@ pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
 background = pygame.image.load('./images/bg.png')
 
 you_win_sound = pygame.mixer.Sound('./sounds/you-win.wav')
-you_win_sound.set_volume(0.5)
+you_win_sound.set_volume(1.0)
 
 you_loose_sound = pygame.mixer.Sound('./sounds/you-loose.wav')
-you_loose_sound.set_volume(0.5)
+you_loose_sound.set_volume(1.0)
 
 shoot_sound = pygame.mixer.Sound('./sounds/bow.wav')
-shoot_sound.set_volume(0.5)
+shoot_sound.set_volume(1.0)
 
 flight_sound = pygame.mixer.Sound('./sounds/flight.wav')
-flight_sound.set_volume(0.5)
+flight_sound.set_volume(1.0)
 
 message_font = pygame.font.Font('./fonts/upheavtt.ttf', 24)
 landed_messages = [

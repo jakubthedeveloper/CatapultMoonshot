@@ -44,7 +44,7 @@ class Menu(object):
         self.bar = ParameterBar(300, 220, 0)
 
         self.click_sound = pygame.mixer.Sound('./sounds/click.wav')
-        self.click_sound.set_volume(0.5)
+        self.click_sound.set_volume(1.0)
 
     def quit(self):
         self.done = True
