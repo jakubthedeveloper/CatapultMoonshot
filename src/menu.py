@@ -27,7 +27,7 @@ class Menu(object):
         ]
 
         self.title_font = pygame.font.Font(os.path.join("fonts", "upheavtt.ttf"), 36)
-        self.title = self.title_font.render("Catapult MoonShoot", True, (255, 255, 255))
+        self.title = self.title_font.render("Catapult Moonshot", True, (255, 255, 255))
 
         self.menu_font = pygame.font.SysFont('Verdana', 24)
 

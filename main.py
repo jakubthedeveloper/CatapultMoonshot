@@ -27,7 +27,7 @@ white = (255, 255, 255)
 black = (0, 0, 0)
 (width, height) = (800, 600) # Dimension of the window
 screen = pygame.display.set_mode((width, height)) # Making of the screen
-pygame.display.set_caption("MoonShoot by JakubTheDeveloper")
+pygame.display.set_caption("Catapult Moonshot by JakubTheDeveloper")
 background = pygame.image.load(os.path.join("images", "bg.png"))
 
 you_win_sound = pygame.mixer.Sound(os.path.join("sounds", "you-win.wav"))
