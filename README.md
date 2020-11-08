@@ -17,6 +17,12 @@ My interpretation of the theme is a game in which you send astronaut to the moon
 
 Game is written in Python with Pygame.
 
+# Screenshots
+![Moonshot - main menu](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/0.png)
+![Moonshot - gameplay 1](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/1.png)
+![Moonshot - gameplay 2](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/2.png)
+![Moonshot - gameplay 3](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/3.png)
+
 # Run with python
 
 If you have python 3 installed, execute:
@@ -52,8 +58,3 @@ Images come from the pack [mobilegamegraphics.com](https://mobilegamegraphics.co
 
 Font come from [dafont.com](https://www.dafont.com/)
 
-# Screenshots
-![Moonshot - main menu](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/0.png)
-![Moonshot - gameplay 1](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/1.png)
-![Moonshot - gameplay 2](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/2.png)
-![Moonshot - gameplay 3](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/3.png)
