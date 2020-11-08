@@ -32,3 +32,9 @@ All sounds come from [freesound.com](https://freesound.org/)
 Images come from the pack [mobilegamegraphics.com](https://mobilegamegraphics.com/product/vector-space-game-character-sprites/) and from [opengameart.org](https://opengameart.org/)
 
 Font come from [dafont.com](https://www.dafont.com/)
+
+# Screenshots
+![Moonshot - main menu](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/0.png)
+![Moonshot - gameplay 1](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/1.png)
+![Moonshot - gameplay 2](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/2.png)
+![Moonshot - gameplay 3](https://github.com/jakubthedeveloper/Moonshot/blob/main/screenshots/3.png)
