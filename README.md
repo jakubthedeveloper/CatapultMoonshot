@@ -58,3 +58,7 @@ Images come from the pack [mobilegamegraphics.com](https://mobilegamegraphics.co
 
 Font come from [dafont.com](https://www.dafont.com/)
 
+# Links
+
+- 🇵🇱 [Artykuł na blogu "Programisty dzień powszedni"](https://programisty-dzien-powszedni.pl/catapult-moonshot-gierka-na-game-off-2020-by-itch-io/)
+- [Catapult Moonshot @ itch.io](https://jakubthedeveloper.itch.io/catapult-moonshot)
