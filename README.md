@@ -1,4 +1,4 @@
-# MoonShoot
+# MoonShot
 
 This project is a game for game jam [Game Off 2020 @ itch.io](https://itch.io/jam/game-off-2020).
 
