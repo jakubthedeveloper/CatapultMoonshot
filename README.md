@@ -39,13 +39,13 @@ Requirements:
 
 # Run - windows exe
 
-Download [exe file from dist folder](https://github.com/jakubthedeveloper/Moonshot/blob/main/dist/Catapult%20Moonshot.exe) and open it.
+Download, unpack and run [build/catapult-moonshot-windows.zip](https://github.com/jakubthedeveloper/Moonshot/blob/main/build/catapult-moonshot-windows.zip).
 
 # Build on windows
 
 ```
-pip install pyinstaller
-python build_win.py
+python -m pip install cx_Freeze --upgrade
+python setup.py build_exe
 ```
 
 # License
