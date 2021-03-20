@@ -62,3 +62,7 @@ Font come from [dafont.com](https://www.dafont.com/)
 
 - 🇵🇱 [Artykuł na blogu "Programisty dzień powszedni"](https://programisty-dzien-powszedni.pl/catapult-moonshot-gierka-na-game-off-2020-by-itch-io/)
 - [Catapult Moonshot @ itch.io](https://jakubthedeveloper.itch.io/catapult-moonshot)
+
+# Buy me a coffee
+Do you appreciate my work? You can thank me by buying me a ☕
+[Buy me a coffee](https://buymeacoff.ee/JakubDeveloper)
